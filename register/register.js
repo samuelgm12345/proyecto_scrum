@@ -1,5 +1,6 @@
 // 1. Obtener el formulario
 var formulario = document.getElementById("formRegistro");
+const loginURL = "../login/login.html";
 
 // 2. Escuchar envío
 formulario.addEventListener("submit", function(e) {
@@ -28,14 +29,55 @@ formulario.addEventListener("submit", function(e) {
     var usuarioGuardado = {
         nombre: nombre,
         usuario: usuario,
-        password: password
+        password: password,
+        saldo: 0
     };
 
     localStorage.setItem("usuarioRegistrado", JSON.stringify(usuarioGuardado));
 
-    alert("Registro exitoso");
+    alert("Evento formulario: " + loginURL);
 
     // 7. Redirigir al login
-    window.location.href = "login.html";
+    window.location.href = loginURL;
 
 });
+
+// REGISTRAR USUARIO
+
+function registrarUsuario(){
+
+    let nombre =
+    document.getElementById("nombre").value;
+
+    let correo =
+    document.getElementById("correo").value;
+
+    let password =
+    document.getElementById("password").value;
+
+    if(nombre == "" || correo == "" || password == ""){
+
+        alert("Complete todos los campos");
+        return;
+    }
+
+    let usuario = {
+
+        nombre: nombre,
+        correo: correo,
+        password: password,
+        saldo: 0
+
+    };
+
+    localStorage.setItem(
+        "usuario",
+        JSON.stringify(usuario)
+    );
+
+
+    alert("Usuario registrado: " + loginURL);
+    console.log("redirigiendo a: ", loginURL);
+
+   window.location.href = loginURL;
+}

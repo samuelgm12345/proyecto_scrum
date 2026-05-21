@@ -1,122 +1,869 @@
-:root {
---primary: #ff7a00;
---bg: #020617;
---card: #111827;
---border: #1f2937;
---text: #e5e7eb;
---muted: #9ca3af;
+/* ===================================================
+   CONTRODOLLAR - PROFESSIONAL FINTECH UI
+=================================================== */
+
+:root{
+
+    --primary: #ff7a00;
+    --primary-light: #ff9f43;
+
+    --background: #020617;
+    --background-secondary: #0f172a;
+
+    --card-bg: rgba(17, 24, 39, 0.95);
+
+    --border: #1e293b;
+
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+
+    --success: #22c55e;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    --shadow-main: 0 10px 30px rgba(0,0,0,0.4);
+    --shadow-hover: 0 15px 35px rgba(0,0,0,0.6);
+
+    /* TRANSICIÓN */
+    --transition: 0.3s ease;
 }
 
-/* BASE */
-body {
-font-family: 'Poppins', sans-serif;
-background: linear-gradient(135deg, #020617, #0f172a);
-color: var(--text);
+/* =========================================
+   HERO DASHBOARD PROFESIONAL
+========================================= */
+
+.hero-dashboard{
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,122,0,0.10),
+        rgba(59,130,246,0.08)
+    );
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    border-radius:24px;
+
+    padding:40px;
+
+    margin-bottom:40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.35);
 }
 
-/* NAVBAR */
-.custom-navbar {
-background: rgba(15,23,42,0.95);
-border-bottom: 1px solid var(--border);
+/* LADO IZQUIERDO */
+
+.hero-left{
+
+    flex:1;
+
+    min-width:300px;
 }
 
-.brand {
-color: var(--primary) !important;
-font-weight: 700;
+.hero-left h2{
+
+    font-size:2.4rem;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    color:white;
 }
 
-/* LINKS */
-.nav-link {
-color: var(--muted);
-cursor: pointer;
+.hero-left p{
+
+    color: var(--text-muted);
+
+    font-size:1.05rem;
+
+    max-width:550px;
+
+    line-height:1.7;
 }
 
-.nav-link:hover {
-color: var(--primary);
+/* LADO DERECHO */
+
+.hero-right{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    justify-content:flex-end;
 }
 
-/* SECCIONES */
-.seccion { display: none; }
-.seccion.activa { display: block; }
 
-.section-title {
-border-left: 4px solid var(--primary);
-padding-left: 10px;
-margin-bottom: 20px;
+.hero-box{
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    border-radius:18px;
+
+    padding:18px 24px;
+
+    min-width:180px;
+
+    transition:0.3s ease;
 }
 
-/* CARDS */
-.card {
-background: var(--card);
-border: 1px solid var(--border);
-border-radius: 16px;
-transition: 0.3s;
+.hero-box:hover{
+
+    transform:translateY(-5px);
+
+    background:
+    rgba(255,255,255,0.06);
 }
 
-.card:hover {
-transform: translateY(-5px);
+.hero-box span{
+
+    display:block;
+
+    color: var(--text-muted);
+
+    font-size:18px;
+
+    margin-bottom:10px;
 }
 
-/* SUMMARY */
-.summary {
-padding: 20px;
-text-align: center;
+.hero-box strong{
+
+    font-size:1rem;
+
+    color:white;
+
+    font-weight:600;
 }
 
-.summary h3 {
-margin-top: 5px;
+
+
+.text-success{
+
+    color:#22c55e !important;
 }
 
-.success h3 { color: #22c55e; }
-.danger h3 { color: #ef4444; }
-.primary h3 { color: #3b82f6; }
 
-/* INPUTS */
-.form-control {
-background: var(--bg);
-border: 1px solid var(--border);
-color: white;
+
+@media(max-width:900px){
+
+    .hero-dashboard{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .hero-right{
+
+        width:100%;
+
+        justify-content:flex-start;
+    }
 }
 
-.form-control:focus {
-border-color: var(--primary);
-box-shadow: 0 0 8px rgba(255,122,0,0.4);
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* BOTONES */
-.btn-main {
-background: linear-gradient(135deg,#ff7a00,#ff9a3c);
-border: none;
-color: white;
-font-weight: 600;
+body{
+    font-family: 'Poppins', sans-serif;
+    background:
+    radial-gradient(circle at top left, #172554 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #7c2d12 0%, transparent 30%),
+    linear-gradient(135deg, var(--background), var(--background-secondary));
+
+    color: var(--text);
+    min-height:100vh;
 }
 
-.btn-main:hover {
-transform: translateY(-2px);
-box-shadow: 0 5px 15px rgba(255,122,0,0.4);
+/* ===================================================
+   NAVBAR
+=================================================== */
+
+.custom-navbar{
+    background: rgba(2, 6, 23, 0.9);
+    backdrop-filter: blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+
+    padding:15px 0;
+
+    position: sticky;
+    top:0;
+    z-index:1000;
 }
 
-/* TABLA */
-.table-custom {
-color: white;
+.brand{
+    color: var(--primary) !important;
+    font-size: 1.5rem;
+    font-weight:700;
+    letter-spacing:1px;
 }
 
-.table-custom tbody tr:hover {
-background: #1f2937;
+.navbar-nav{
+    gap:10px;
 }
 
-/* CALCULADORA */
-.result-box {
-background: #020617;
-padding: 15px;
-border-radius: 10px;
-border: 1px solid var(--border);
+.nav-link{
+    color: var(--text-muted);
+    font-weight:500;
+
+    padding:10px 18px !important;
+
+    border-radius:10px;
+
+    transition: var(--transition);
+
+    cursor:pointer;
 }
 
-/* FAKE CHART */
-.fake-chart {
-height: 150px;
-background: linear-gradient(90deg,#ff7a00,#3b82f6);
-border-radius: 10px;
-opacity: 0.3;
+.nav-link:hover{
+    background: rgba(255,122,0,0.1);
+    color: var(--primary);
+}
+
+/* ===================================================
+   SECCIONES
+=================================================== */
+
+.seccion{
+    display:none;
+    animation: fadeIn 0.5s ease;
+}
+
+.seccion.activa{
+    display:block;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform: translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+.section-title{
+    font-size:1.6rem;
+    font-weight:600;
+
+    margin-bottom:25px;
+
+    position:relative;
+
+    padding-left:18px;
+}
+
+.section-title::before{
+    content:"";
+
+    width:5px;
+    height:100%;
+
+    background: linear-gradient(
+        180deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    position:absolute;
+    left:0;
+    top:0;
+
+    border-radius:10px;
+}
+
+/* ===================================================
+   CARDS GENERALES
+=================================================== */
+
+.card{
+    background: var(--card-bg);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    border-radius:20px;
+
+    box-shadow: var(--shadow-main);
+
+    transition: var(--transition);
+
+    overflow:hidden;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ===================================================
+   SUMMARY CARDS
+=================================================== */
+
+.summary{
+    padding:28px;
+
+    position:relative;
+}
+
+.summary::after{
+    content:"";
+
+    position:absolute;
+    top:-30px;
+    right:-30px;
+
+    width:100px;
+    height:100px;
+
+    background: rgba(255,255,255,0.03);
+
+    border-radius:50%;
+}
+
+.summary p{
+    color: var(--text-muted);
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.summary h3{
+    font-size:2rem;
+    font-weight:700;
+}
+
+.success h3{
+    color: var(--success);
+}
+
+.danger h3{
+    color: var(--danger);
+}
+
+.primary h3{
+    color: var(--info);
+}
+
+/* ===================================================
+   FORMULARIOS
+=================================================== */
+
+label{
+    margin-bottom:8px;
+    color: var(--text-muted);
+    font-size:14px;
+}
+
+.form-control{
+
+    background: rgba(2, 6, 23, 0.8);
+
+    border:1px solid var(--border);
+
+    color: var(--text);
+
+    padding:14px;
+
+    border-radius:14px;
+
+    transition: var(--transition);
+}
+
+.form-control::placeholder{
+    color: #64748b;
+}
+
+.form-control:focus{
+
+    background: rgba(2, 6, 23, 1);
+
+    border-color: var(--primary);
+
+    color:white;
+
+    box-shadow:
+    0 0 0 3px rgba(255,122,0,0.15);
+
+    outline:none;
+}
+
+/* SELECT */
+
+select.form-control{
+    cursor:pointer;
+}
+
+/* ===================================================
+   BOTONES
+=================================================== */
+
+.btn-main{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    border:none;
+
+    color:white;
+
+    font-weight:600;
+
+    border-radius:14px;
+
+    padding:12px 18px;
+
+    transition: var(--transition);
+}
+
+.btn-main:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow:
+    0 10px 20px rgba(255,122,0,0.35);
+}
+
+/* ===================================================
+   TABLA HISTORIAL
+=================================================== */
+
+.table-custom{
+    color:white;
+    margin-top:15px;
+}
+
+.table-custom thead{
+
+    background: rgba(255,255,255,0.03);
+}
+
+.table-custom th{
+    color: var(--text-muted);
+    border:none;
+    padding:18px;
+}
+
+.table-custom td{
+    padding:18px;
+    border:none;
+}
+
+.table-custom tbody tr{
+
+    transition: var(--transition);
+
+    border-bottom:1px solid rgba(255,255,255,0.04);
+}
+
+.table-custom tbody tr:hover{
+
+    background: rgba(255,255,255,0.03);
+}
+
+/* ===================================================
+   BADGES
+=================================================== */
+
+.badge{
+    padding:8px 12px;
+    border-radius:10px;
+    font-weight:500;
+}
+
+/* ===================================================
+   CALCULADORA
+=================================================== */
+
+.result-box{
+
+    margin-top:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,122,0,0.08),
+        rgba(59,130,246,0.08)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:16px;
+
+    padding:25px;
+
+    min-height:180px;
+
+    color:white;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    transition:0.3s ease;
+}
+
+/* ===================================================
+   HOME - CHART VISUAL
+=================================================== */
+
+.fake-chart{
+
+    height:220px;
+
+    margin-top:20px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,122,0,0.35),
+        rgba(59,130,246,0.35)
+    );
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.fake-chart::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:200%;
+
+    height:100%;
+
+    background:
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.03) 40px,
+        rgba(255,255,255,0.03) 41px
+    );
+
+    animation: moveChart 10s linear infinite;
+}
+
+@keyframes moveChart{
+
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media(max-width:768px){
+
+    .summary{
+        margin-bottom:15px;
+    }
+
+    .section-title{
+        font-size:1.3rem;
+    }
+
+    .navbar-nav{
+        margin-top:15px;
+    }
+}
+
+/* BADGES */
+
+.bg-success{
+    background: #22c55e !important;
+}
+
+.bg-danger{
+    background: #ef4444 !important;
+}
+
+/* ===================================================
+   ALERTAS
+=================================================== */
+
+.alerta{
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    margin-bottom:20px;
+
+    font-weight:500;
+
+    animation:fadeSlide 0.4s ease;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
+}
+
+.alerta.success{
+
+    background:
+    rgba(34,197,94,0.15);
+
+    border:1px solid rgba(34,197,94,0.3);
+
+    color:#bbf7d0;
+}
+
+.alerta.error{
+
+    background:
+    rgba(239,68,68,0.15);
+
+    border:1px solid rgba(239,68,68,0.3);
+
+    color:#fecaca;
+}
+
+@keyframes fadeSlide{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(-10px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+    }
+}
+
+/* ===================================================
+   FILTRO
+=================================================== */
+
+.filter-box{
+
+    display:flex;
+
+    justify-content:flex-end;
+}
+
+.filter-box select{
+
+    max-width:280px;
+}
+
+/* ===================================================
+   BOTÓN ELIMINAR
+=================================================== */
+
+.btn-danger{
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    padding:8px 14px;
+
+    transition:0.3s ease;
+}
+
+.btn-danger:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 8px 18px rgba(239,68,68,0.35);
+}
+
+/* ===================================================
+   ESTADÍSTICAS
+=================================================== */
+
+.stats-card{
+
+    padding:30px;
+}
+
+.stats-card h5{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+}
+
+.stats-card p{
+
+    color:var(--text-muted);
+
+    margin:0;
+}
+
+/* ===================================================
+   LOGOUT
+=================================================== */
+
+.logout-btn{
+
+    color:#f87171 !important;
+}
+
+.logout-btn:hover{
+
+    background:
+    rgba(239,68,68,0.1);
+
+    color:#ef4444 !important;
+}
+
+/* ===================================================
+   INPUTS PREMIUM
+=================================================== */
+
+.custom-input{
+
+    height:52px;
+
+    font-size:15px;
+}
+
+/* ===================================================
+   TABLA RESPONSIVE
+=================================================== */
+
+.table-custom{
+
+    min-width:700px;
+}
+
+.card{
+
+    overflow-x:auto;
+}
+
+/* ===================================================
+   SCROLLBAR
+=================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:10px;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+    linear-gradient(
+        180deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0f172a;
+}
+
+/* ===================================================
+   TRANSICIONES
+=================================================== */
+
+*{
+
+    transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* ===================================================
+   MOBILE UX
+=================================================== */
+
+@media(max-width:768px){
+
+    .hero-dashboard{
+
+        padding:25px;
+    }
+
+    .hero-left h2{
+
+        font-size:1.8rem;
+    }
+
+    .hero-box{
+
+        width:100%;
+    }
+
+    .summary{
+
+        padding:22px;
+    }
+
+    .card{
+
+        border-radius:18px;
+    }
+
+    .table-custom{
+
+        font-size:14px;
+    }
+
+    .btn-main{
+
+        width:100%;
+    }
 }

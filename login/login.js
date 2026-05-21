@@ -27,12 +27,43 @@ formulario.addEventListener("submit", function(e) {
     }
 
 });
-// Obtener usuario guardado
-var datos = JSON.parse(localStorage.getItem("usuarioRegistrado"));
 
-if (datos && usuario === datos.usuario && password === datos.password) {
-    alert("Inicio de sesión correcto");
-    window.location.href = "dashboard.html";
-} else {
-    alert("Usuario o contraseña incorrectos");
+function iniciarSesion(){
+
+    // Obtener usuario guardado
+    var datos = JSON.parse(localStorage.getItem("usuarioRegistrado"));
+
+
+    let correo =
+    document.getElementById("correo").value;
+
+    let password =
+    document.getElementById("password").value;
+
+
+    if(datos.usuario === correo && datos.password === password) {
+
+        alert("Inicio de sesión correcto");
+        window.location.href = "../home/home.html";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+
+    if(
+        correo == usuarioGuardado.correo &&
+        password == usuarioGuardado.password
+    ){
+
+        localStorage.setItem(
+            "sesionActiva",
+            "true"
+        );
+
+        window.location.href =
+"../home/home.html";
+    }
+    else{
+
+        alert("Datos incorrectos");
+    }
 }
